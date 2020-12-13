@@ -27,7 +27,9 @@ public class CoffeeMachine {
     volatile Map<String, Ingredient> ingredientsMap = new HashMap<>();
     ExecutorService slotsExecutorService;
 
-
+    /**adding new beverage request to threadpool
+     * each thread will use available slot to dispense coffee
+     * **/
     public void prepareBeverage(String beverageName){
         try {
             this.slotsExecutorService.submit(new CoffeeDispenser(this,beverageName));
@@ -35,7 +37,8 @@ public class CoffeeMachine {
             logger.log(Level.SEVERE,"beverage cannot be prepared");
         }
     }
-
+    /** refill ingredient of coffee
+     * **/
     public void refillIngredient(String name){
 
         if(name != null){

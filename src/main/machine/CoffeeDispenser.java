@@ -19,6 +19,8 @@ public class CoffeeDispenser implements Callable {
         this.beverageName = beverageName;
     }
 
+    /** Prepare beverage in the available thread from threadpool
+     * **/
     @Override
     public Object call() throws Exception {
 
